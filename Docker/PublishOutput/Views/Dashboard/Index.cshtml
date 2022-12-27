@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index DashBoard";
+}
+
+
+
+<div class="container">
+    <h2 class="text-black-50 text-center pt-5">@ViewBag.Title</h2>
+
+    <h4 class="text-black-50">Grafica de Pastel</h4>
+    <!--div que va a renderizar la grafica Pastel-->
+    <div id="pastel"></div>
+    <hr />
+    <h4 class="text-black-50">Grafica de Barras</h4>
+    <!--div que va a renderizar la grafica Barras-->
+    <div id="barras"></div>
+
+</div>
+
+
+
+<!--Scriptes que utiliza la grafica-->
+<!--agregamos tambien jquery-->
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <!--script para obtener la url base-->
+    <!--Creamos la urlBase que enviaremos a la grafica Pastel https://localhost:44360/Dashboard-->
+    <script>
+        var urlBase = 'https://' + '@Context.Request.Url.Host' + ':' + '@Context.Request.Url.Port' + '@Context.Request.Path';
+    </script>
+
+    <!--el script de configuración de las grafica-->
+    <script src="~/Scripts/Graficas/Pastel.js"></script>
+    <script src="~/Scripts/Graficas/Barras.js"></script>
+}
